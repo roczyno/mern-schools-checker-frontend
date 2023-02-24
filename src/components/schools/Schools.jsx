@@ -1,20 +1,24 @@
 import { useState } from "react";
 import Results from "../results/Results";
 import "./schools.css";
-const university = {
-  computerScience: {
+const university = [
+  {
     name: "Computer Science",
     cutOffPoints: 6,
   },
-  informationTechnology: {
+  {
     name: "Information Technology",
     cutOffPoints: 4,
   },
-  forensicScience: {
+  {
     name: "Forensic Science",
     cutOffPoints: 20,
   },
-};
+  {
+    name: "Social Science",
+    cutOffPoints: 14,
+  },
+];
 
 const Schools = () => {
   const [core1, setCore1] = useState("");
@@ -41,16 +45,17 @@ const Schools = () => {
     const elective1Points = gradeToPoints(gradeE1);
     const elective2Points = gradeToPoints(gradeE2);
     const elective3Points = gradeToPoints(gradeE3);
-
-    setTotalScore(
+    const totalPoints =
       core1Points +
-        core2Points +
-        core3Points +
-        elective1Points +
-        elective2Points +
-        elective3Points
-    );
-    setQualifiedPrograms(findQualifiedPrograms(totalScore));
+      core2Points +
+      core3Points +
+      elective1Points +
+      elective2Points +
+      elective3Points;
+
+    setTotalScore(totalPoints);
+    const qualifiedPrograms = findQualifiedPrograms(totalPoints);
+    setQualifiedPrograms(qualifiedPrograms);
   };
   const gradeToPoints = (grade) => {
     switch (grade) {
@@ -77,16 +82,23 @@ const Schools = () => {
     }
   };
 
+  // const findQualifiedPrograms = (totalPoints) => {
+  //   const programs = [];
+  //   Object.values(university).forEach((program) => {
+  //     if (totalPoints <= program.cutOffPoints) {
+  //       programs.push(program.name);
+  //     } else {
+  //       alert("you dont qualify for any course");
+  //     }
+  //   });
+  //   return programs;
+  // };
   const findQualifiedPrograms = (totalPoints) => {
-    const programs = [];
-    Object.values(university).forEach((program) => {
-      if (totalPoints <= program.cutOffPoints) {
-        programs.push(program.name);
-      }
-    });
-    return programs;
+    const programs = university.filter(
+      (program) => totalPoints <= program.cutOffPoints
+    );
+    return programs.map((program) => program.name);
   };
-
   return (
     <div className="container">
       <>
@@ -135,7 +147,7 @@ const Schools = () => {
                       <option value="C6">C6</option>
                       <option value="D7">D7</option>
                       <option value="E8">E8</option>
-                      <option value="E9">F9</option>
+                      <option value="F9">F9</option>
                     </select>
                   </td>
                 </tr>
@@ -171,7 +183,7 @@ const Schools = () => {
                       <option value="C6">C6</option>
                       <option value="D7">D7</option>
                       <option value="E8">E8</option>
-                      <option value="E9">F9</option>
+                      <option value="F9">F9</option>
                     </select>
                   </td>
                 </tr>
@@ -210,7 +222,7 @@ const Schools = () => {
                       <option value="C6">C6</option>
                       <option value="D7">D7</option>
                       <option value="E8">E8</option>
-                      <option value="E9">F9</option>
+                      <option value="F9">F9</option>
                     </select>
                   </td>
                 </tr>
@@ -328,7 +340,7 @@ const Schools = () => {
                       <option value="C6">C6</option>
                       <option value="D7">D7</option>
                       <option value="E8">E8</option>
-                      <option value="E9">F9</option>
+                      <option value="F9">F9</option>
                     </select>
                   </td>
                 </tr>
@@ -446,7 +458,7 @@ const Schools = () => {
                       <option value="C6">C6</option>
                       <option value="D7">D7</option>
                       <option value="E8">E8</option>
-                      <option value="E9">F9</option>
+                      <option value="F9">F9</option>
                     </select>
                   </td>
                 </tr>
@@ -564,7 +576,7 @@ const Schools = () => {
                       <option value="C6">C6</option>
                       <option value="D7">D7</option>
                       <option value="E8">E8</option>
-                      <option value="E9">F9</option>
+                      <option value="F9">F9</option>
                     </select>
                   </td>
                 </tr>

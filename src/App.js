@@ -1,12 +1,12 @@
 import React from "react";
-import AdmissionsSelector from "./admin";
-import Admission from "./Admission";
+
 import Schools from "./components/schools/Schools";
+import Home from "./pages/home/Home";
 
 const App = () => {
   return (
     <div>
-      <Schools />
+      <Home />
     </div>
   );
 };
