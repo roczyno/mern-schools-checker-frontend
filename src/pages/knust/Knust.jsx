@@ -1,27 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Results from "../../components/results/Results";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import "./knust.css";
-const university = [
-  {
-    name: "Computer Science",
-    cutOffPoints: 6,
-  },
-  {
-    name: "Information Technology",
-    cutOffPoints: 4,
-  },
-  {
-    name: "Forensic Science",
-    cutOffPoints: 20,
-  },
-  {
-    name: "Social Science",
-    cutOffPoints: 14,
-  },
-];
 
 const Knust = () => {
   const [core1, setCore1] = useState("");
@@ -39,6 +22,20 @@ const Knust = () => {
 
   const [qualifiedPrograms, setQualifiedPrograms] = useState([]);
   const [totalScore, setTotalScore] = useState(0);
+  const [university, setUniversity] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/knust/find");
+        setUniversity(res.data);
+        console.log(res);
+      } catch (error) {
+        console.log(`the error is ${error}`);
+      }
+    };
+    getData();
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();

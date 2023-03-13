@@ -1,5 +1,5 @@
 const Results = ({ totalScore, qualifiedPrograms }) => (
-  <div>
+  <div style={{ color: "lightgray" }}>
     <h2>Results</h2>
     Aggregate is: {totalScore}
     <br />

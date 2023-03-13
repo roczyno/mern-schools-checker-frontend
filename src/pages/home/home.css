@@ -8,6 +8,20 @@
     color: white;
 }
 
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top .about {
+    color: #eaa023;
+    font-size: 30px;
+    margin-right: 10px;
+    padding: 5px;
+    cursor: pointer;
+
+}
+
 .top .logo {
     color: #eaa023;
     font-size: 36px;

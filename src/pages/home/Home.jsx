@@ -11,6 +11,7 @@ const Home = () => {
     <div className="home">
       <div className="top">
         <span className="logo">SchoolChecker</span>
+        <span className="about">About</span>
       </div>
       <div className="center">
         <p className="desc">
