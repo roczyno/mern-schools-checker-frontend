@@ -27,7 +27,9 @@ const Ucc = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/ucc/find");
+        const res = await axios.get(
+          "https://schools-checker-api.onrender.com/api/ucc/find"
+        );
         setUniversity(res.data);
         console.log(res);
       } catch (error) {

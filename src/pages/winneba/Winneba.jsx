@@ -27,7 +27,9 @@ const Winneba = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/uew/find");
+        const res = await axios.get(
+          "https://schools-checker-api.onrender.com/api/uew/find"
+        );
         setUniversity(res.data);
         console.log(res);
       } catch (error) {
